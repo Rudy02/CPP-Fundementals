@@ -1,0 +1,15 @@
+-& written within a member function:
+Example:
+    String & operator=(const String &)
+    
+Here we have "&" within the name of a member function. This means that we will be 
+returning by reference. In this case, we are returning a string by referencing the
+object.
+
+-& within the parameter:
+    The "&" here is pass-by-reference. Unlike the example above, we are passing
+    an object by reference. And once all is done, we are returning that same
+    object by reference. That explains the syntax.
+
+-const within the parameter:
+    This means that the object being passed cannot be modified. 
