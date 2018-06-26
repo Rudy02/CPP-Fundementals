@@ -1,0 +1,39 @@
+The whole gist of ** vs *& within a parameter:
+source: 
+    https://stackoverflow.com/questions/3834067/c-difference-between-and-in-parameter-passing
+    
+- The whole point of ** within a parameter (usually a parameter belonging to a function) is passing a pointer that points
+to a pointer. Sounds crazy, but in C++ you cannot pass a NULL value as a parameter. In this case, you cannot pass a NULL value as a reference. 
+If a pointer is pointing to NULL, that in itself is passing a NULL value. So instead, we can pass a pointer that points to a pointer so we 
+aren't really passing NULL, but rather the address of NULL.
+
+If we had a function and we passed in a node like this: 
+
+    randomFunction(myNode, value);
+    
+then the function parameter of randomFunction would be declared like so: 
+   
+    randomFunction (*&Node, int value);
+    
+We pass a pointer by reference, usually not a NULL value. 
+    
+If we pass the address of a Node, like so:
+
+    randomFunction(&myNode, value);
+    
+then the function declaration would look like this:
+
+    randomFUnction(**myNode, value);
+    
+By using the syntax above, we pass the address of myNode. Since we are passing the address of myNode we need to do a double dereference
+because we're passing a pointer-to-a-pointer. 
+    
+    
+**********************************************************************************************************************************
+    
+* vs & inside a parameter:
+source:
+    https://stackoverflow.com/questions/5816719/difference-between-function-arguments-declared-with-and-in-c
+         
+         
+    
